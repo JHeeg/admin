@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heez - Admin</title>
+    <!-- css 링크 -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 자바스크립트 -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/iscroll.js"></script>
+    <!-- 구글차트 -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['sale', 'total'],
+            ['Urgent', 2],
+            ['Normal', 2],
+            ['Completed', 6],
+        ]);
+
+        var options = {
+            pieHole: 0.8,
+            legend: {position: 'bottom', fontSize: 20},
+            width: 260,
+            height: 260,
+            chartArea: {width: 230, height: 220},
+            pieSliceText: 'none'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+    </script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses', 'Profit'],
+            ['2014', 1000, 400, 200],
+            ['2015', 1170, 460, 250],
+            ['2016', 660, 1120, 300],
+            ['2017', 1030, 540, 350]
+          ]);
+  
+          var options = {
+            legend: {position: 'none'},
+            height: 260,
+            width: 600,
+            hAxis: {title: ''},
+            bar: {groupWidth: '50%'}
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+  
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <a href="#main" id="skip-nav">본문 바로가기</a>
+        <!-- 고정헤더 -->
+        <header id="header">
+            <a href="#" class="menu">menu</a>
+            <h2>Dashboard</h2>
+            <ul id="tnb">
+                <li>
+                    <a href="#"><img src="img/ico_search_black.png" alt="검색"></a>
+                    <!-- <label for="search">검색</label>
+                    <input type="text" id="search" placeholder="Search Here"> -->
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/ico_alarm_black.png" alt="알림">
+                    </a>
+                </li>
+                <li>
+                    <em>Chris Hemsworth</em>
+                    <a href="#">
+                        <img src="img/ico_account.png" alt="마이페이지">
+                    </a>
+                </li>
+            </ul>
+        </header> <!-- //#header -->
+        <!-- 고정메뉴(왼쪽) -->
+        <nav id="gnb">
+            <h1>
+                <a href="#">
+                    <img src="img/logo_white.png" alt="로고" class="logo">
+                </a>
+            </h1>
+            <ul>
+                <li>
+                    <a href="index.html"><span class="ti-view-grid"></span>Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-calendar"></span>Calendar</a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-layout"></span>Project Report</a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-folder"></span>Collection</a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-comments"></span>Feedback</a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-settings"></span>Setting</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 메인 컨텐츠 영역 -->
+        <main id="main">
+            <section class="layout-wrap">
+                <section class="layout row-2">
+                    <section class="layout col-1-2">
+                        <section class="layout-box sale">
+                            <h3>Sale</h3>
+                            <label for="period" class="hidden">기간선택</label>
+                            <select name="period" id="period" class="period">
+                                <option value="today">Today</option>
+                                <option value="week">This week</option>
+                                <option value="month" selected>This month</option>
+                                <option value="year">This year</option>
+                            </select>
+                            <!-- 구글차트 (도넛형) -->
+                            <div id="donutchart"></div>
+                        </section>
+                        <section class="layout-box payments">
+                            <h3>Payments</h3>
+                            <label for="period" class="hidden">기간선택</label>
+                            <select name="period" id="period" class="period">
+                                <option value="today">Today</option>
+                                <option value="week">This week</option>
+                                <option value="month" selected>This month</option>
+                                <option value="year">This year</option>
+                            </select>
+                            <!-- 구글차트 (세로막대형) -->
+                            <div id="columnchart_material"></div>
+                        </section>
+                    </section>
+                    <section class="layout col-1-2">
+                        <section class="layout-box review">
+                            <h3>Latest Rattings & Reviews</h3>
+                            <div class="content-box scroll">
+                                <ul>
+                                    <li>
+                                        <em>1. Mr. John James</em>
+                                        <span class="mark">★★★★</span>
+                                        <p class="txt">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, vero. Et, saepe iure? Provident rerum delectus explicabo excepturi obcaecati modi porro soluta reiciendis neque ea! Laudantium eius soluta nesciunt voluptas.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <em>2. Mr. Herman Beck </em>
+                                        <span class="mark">★★★</span>
+                                        <p class="txt">
+                                            Soluta molestiae magnam sint reprehenderit, corporis repudiandae quidem placeat ut nesciunt ipsam eum explicabo quibusdam, ab debitis, cum quae maxime hic. Aliquid.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <em>3. Ms. Mille Jensen</em>
+                                        <span class="mark">★★★★★</span>
+                                        <p class="txt">
+                                            Saepe dolorum itaque accusamus autem excepturi iure ex hic nisi ea doloribus. Reprehenderit et assumenda obcaecati, voluptatum laudantium veritatis ex autem eum!
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <em>4. Mr. Alma Christensen</em>
+                                        <span class="mark">★★★★★</span>
+                                        <p class="txt">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, magni consequuntur dolor autem, vel, quae quis amet exercitationem consectetur fuga officia iste in quaerat nihil expedita deleniti excepturi ipsam minima!
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <em>5. Ms. Keto Philip</em>
+                                        <span class="mark">★★★</span>
+                                        <p class="txt">
+                                            Dolorem corporis repudiandae odit enim laborum quo nulla, expedita ratione repellendus nostrum dolor blanditiis ea harum. Alias facilis ex quam deleniti illum.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="layout-box">
+                            <h3>Top Selling Products</h3>
+                            <div class="content-box scroll">
+                                <table class="">
+                                    <caption>Top Selling Products List</caption>
+                                    <colgroup>
+                                        <col width="5%">
+                                        <col width="50%">
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Product Name</th>
+                                            <th>amt</th>
+                                            <th>total</th>
+                                        </t>
+                                    </thead>
+                                    <tbody class="txt">
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Product Name</td>
+                                            <td>987</td>
+                                            <td>$ 995,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Product Name</td>
+                                            <td>876</td>
+                                            <td>$ 395,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Product Name</td>
+                                            <td>765</td>
+                                            <td>$ 295,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Product Name</td>
+                                            <td>654</td>
+                                            <td>$ 195,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Product Name</td>
+                                            <td>543</td>
+                                            <td>$ 95,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Product Name</td>
+                                            <td>432</td>
+                                            <td>$ 55,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Product Name</td>
+                                            <td>321</td>
+                                            <td>$ 45,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Product Name</td>
+                                            <td>210</td>
+                                            <td>$ 35,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Product Name</td>
+                                            <td>100</td>
+                                            <td>$ 25,900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Product Name</td>
+                                            <td>10</td>
+                                            <td>$ 15,900</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+                <section class="layout row-1">
+                    <section class="layout-box activity">
+                        <h3>Activities</h3>
+                        <div class="content-box scroll">
+                            <ul>
+                                <li>
+                                    <div class="txt-title">
+                                        <span class="ti-gift"></span>
+                                        <a href="#">Birthday<span class="ti-angle-down"></span></a>
+                                    </div>
+                                    <ul class="txt">
+                                        <li class="birth">Shilpa Rao<span>Today</span></li>
+                                        <li class="birth">Prajakta Patil<span>Today</span></li>
+                                        <li class="birth">Hemlata Gaikwad<span>Today</span></li>
+                                        <li class="birth">Sagar Dayanand<span>Tomorrow</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="txt-title">
+                                        <span class="ti-sharethis"></span>
+                                        <a href="#">Meeting<span class="ti-angle-down"></span></a>
+                                    </div>
+                                    <ul class="txt">
+                                        <li>Sales team meeting 10:00 am</li>
+                                        <li>Design team meeting for latest update 11:10 am</li>
+                                        <li>Sales team meeting 14:30 pm</li>
+                                        <li>DEsign team meeting for latest update 16:00 pm</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="txt-title">
+                                        <span class="ti-bell"></span>
+                                        <a href="#">Notifications<span class="ti-angle-down"></span></a>
+                                    </div>
+                                    <ul class="txt">
+                                        <li>
+                                            <em>Isabella Becker</em>
+                                            Sales dashboard have been created
+                                            <span>9:30 am</span>
+                                        </li>
+                                        <li>
+                                            <em>Adam Warren</em>
+                                            You have done a great job #TW11109872
+                                            <span>10:30 am</span>
+                                        </li>
+                                        <li>
+                                            <em>Leonard Thornton</em>
+                                            Sales dashboard have been created
+                                            <span>11:30 am</span>
+                                        </li>
+                                        <li>
+                                            <em>George Morrison</em>
+                                            Sales dashboard have been created
+                                            <span>8:50 am</span>
+                                        </li>
+                                        <li>
+                                            <em>Ryan Cortez</em>
+                                            Herbs are fun and easy to grow.
+                                            <span>9:00 am</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script>
+    'use script';
+    
+    // iScroller();
+
+    // function iScroller() {
+    //     var myScroll = new Array();
+    //     $('.scroll').each(function() {
+    //         $(this).attr('id', 'wrapper' + $(this).index());
+    //         id = $(this).attr('id');
+    //         console.log(id);
+    //         myScroll.push(new IScroll(id, {
+    //             mouseWheel: true,
+    //             scrollbars: true,
+    //             fadeScrollbars: false,
+    //             interactiveScrollbars: true
+    //         }));
+    //     });
+    // }
+
+    setTimeout(function() {
+        var myScroll = new IScroll('div.scroll', {
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: false,
+            interactiveScrollbars: true
+        });   
+    }, 500);
+        
+    </script>
+</body>
+</html>

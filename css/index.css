@@ -1,0 +1,107 @@
+/* 공통 */
+body {font-family: 'Rajdhani'; font-size: 16px;}
+a {font-family: inherit;}
+.hidden {height: 0; line-height: 0; font-size: 0; text-indent: -9999px;}
+::selection {color: #fff; background: #f05053;}
+
+/* 헤더 */
+#header {position: fixed; width: calc(100vw - 255px); height: 70px; min-width: 1200px; left: 240px; top: 0; border-bottom: 1px solid #e4e4e4; background-color: #fff; box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.1); box-sizing: border-box; z-index: 10;}
+#header a.menu {position: absolute; width: 30px; height: 30px; left: 30px; top: 50%; transform: translate(0, -50%); background-image: url(../img/ico_widget_black.png); background-size: 30px 30px; text-indent: -9999px;}
+#header h2 {position: absolute; left: 80px; top: 50%; transform: translate(0, -50%); font-weight: 500;}
+
+#tnb {position: absolute; right: 30px; top: 50%; transform: translate(0, -50%); overflow: hidden;}
+#tnb li {display: inline-block; font-size: 20px; font-weight: 500;}
+#tnb li + li {margin-left: 15px;}
+#tnb li img {width: 30px;}
+#tnb li:last-child::before {content: '|'; display: inline-block; margin-right: 15px;}
+#tnb li:last-child img {width: 45px; margin-left: 10px;}
+
+/* 메뉴 */
+#gnb {position: fixed; width: 240px; height: 100%; left: 0; top: 0; background: linear-gradient(to top, #ffffff, #f05053); box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.1); z-index: 10;}
+#gnb h1 {position: absolute; left: 50%; top: 20px; transform: translate(-50%, 0);}
+#gnb h1 a {display: block; width: 110px;}
+
+#gnb ul {margin-top: 100px; padding: 0 7px;}
+#gnb ul li {line-height: 40px; color: #f4f4f4; font-size: 17px;}
+#gnb ul li + li { margin-top: 5px;}
+#gnb ul li a {display: block; width: 100%; height: 100%; padding: 0 15px; box-sizing: border-box;}
+#gnb ul li a:hover {border-radius: 5px; background: rgba(255, 255, 255, 0.2);}
+#gnb ul li span {margin-right: 20px; font-size: 15px;}
+
+/* 메인 컨텐츠 영역 */
+#main {height: 1500px; min-width: 1200px; min-height: calc(100vh - 70px); margin: 70px 0 0 240px; padding: 30px;}
+
+/* 메인 공통 */
+section.layout-wrap, section.layout, section.layout-box {overflow: hidden;}
+section.layout > section.layout-box {min-height: 350px; padding: 20px; background: #ffffff; border: 1px solid #e4e4e4; border-radius: 5px; box-sizing: border-box;}
+section.layout.row-2 {float: left; width: calc(75% - 10px);}
+section.layout.row-2 > section.col-1 {width: 100%;}
+section.layout.row-2 > section.layout + section.layout {margin-top: 25px;}
+section.layout.row-2 > section.layout.col-1-2 > section.layout-box {float: left; width: 30%;}
+section.layout.row-2 > section.layout.col-1-2 > section.layout-box:last-child {width: 68%; margin-left: 2%;}
+
+section.layout.row-1 {float: right; width: calc(25% - 10px); height: 100%;}
+section.layout.row-1 > section.layout-box {min-height: 720px;}
+
+section.layout-box div.content-box {position: relative; max-height: 260px; margin-top: 20px; box-sizing: border-box; overflow: hidden;}
+section.layout-box div.content-box .txt {font-family: 'Noto Sans', 'Noto Sans KR'; font-size: 12px; color: #444;}
+
+/* 메인 각 섹션별 영역 */
+/* sale */
+section.sale {position: relative;}
+section.sale select.period {position: absolute; right: 20px; top: 22px; border: none;}
+#donutchart {position: absolute; left: 50%; top: 55%; transform: translate(-50%, -50%);}
+
+/* payments */
+section.payments {position: relative;}
+section.payments select.period {position: absolute; right: 20px; top: 22px; border: none;}
+#columnchart_material {position: absolute; left: 50%; top: 55%; transform: translate(-50%, -50%);}
+
+/* review */
+section.review em {font-weight: 600;}
+section.layout-box p {width: 100%; max-height: 55px; line-height: 17px; text-align: justify; text-indent: 12px; text-overflow: ellipsis; word-wrap: break-word; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;}
+
+/* Reviews */
+section.review ul {padding-right: 12px;}
+section.review ul li {padding: 10px 0; border-bottom: 1px solid #e4e4e4;}
+section.review span.mark {float: right; color: gold;}
+section.review p {clear: both;}
+
+/* Top Selling Products */
+table tr {border-bottom: 1px solid #e4e4e4;}
+table th {color: #444;}
+table th, table td {padding: 10px 20px; text-align: center;}
+
+/* Activities */
+section.activity div.content-box {max-height: 640px;}
+section.activity div.txt-title {position: relative; width: 100%; font-size: 20px; font-weight: 600; color: #222; overflow: hidden;}
+section.activity div.txt-title > span {float: left; padding: 10px; margin-right: 10px; border: 1px solid #e4e4e4; border-radius: 50%;}
+section.activity div.txt-title > span.ti-gift {color: #f05053;}
+section.activity div.txt-title > span.ti-sharethis {color: #11bb1a;}
+section.activity div.txt-title > span.ti-bell {color: #ffd900;}
+section.activity div.txt-title a {display: block; height: 100%; padding: 8px 0;}
+section.activity div.txt-title a span {position: absolute; right: 0; top: 50%; transform: translate(0, -50%); font-size: 12px;}
+
+section.activity ul.txt {margin: 10px 0 30px; padding-left: 53px;}
+section.activity ul.txt li {font-size: 14px; line-height: 20px;}
+section.activity ul.txt li + li {margin-top: 10px;}
+section.activity ul.txt li em {font-size: 16px; margin-bottom: 5px; text-decoration: underline;}
+section.activity ul.txt li em, section.activity ul.txt li span {display: block;}
+section.activity ul.txt li span {font-size: 13px;}
+
+section.activity ul.txt li.birth {position: relative; padding-left: 40px;}
+section.activity li.birth::before {position: absolute; display: inline-block; width: 30px; height: 30px; left: 0; top: 50%; transform: translate(0, -50%); content: ''; border-radius: 50%; background-repeat: no-repeat; background-position: center; background-size: 100%; overflow: hidden;}
+section.activity li.birth:nth-child(1)::before {background-image: url(../img/face1.jpg);}
+section.activity li.birth:nth-child(2)::before {background-image: url(../img/face2.jpg);}
+section.activity li.birth:nth-child(3)::before {background-image: url(../img/face3.jpg);}
+section.activity li.birth:nth-child(4)::before {background-image: url(../img/face4.jpg);}
+
+section.activity div.content-box > ul > li:nth-child(3) ul.txt li {list-style: disc;}
+
+/* color guide */
+/*
+deep blue ver.
+#000C40 (point)
+#F0F2F0 (base)
+*/
+
