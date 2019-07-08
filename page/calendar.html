@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Heez - Admin</title>
+
+    <!-- css 링크 -->
+    <link rel="stylesheet" href="../css/themify-icons.css">
+    <link href="../css/fullcalendar/fullcalendar_core.css" rel="stylesheet" />
+    <link href="../css/fullcalendar/fullcalendar_daygrid.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+
+    <!-- 자바스크립트 -->
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/fullcalendar/fullcalendar_core.js"></script>
+    <script src="../js/fullcalendar/fullcalendar_daygrid.js"></script>
+    <script src="../js/fullcalendar/fullcalendar_interaction.js"></script>
+    
+    <script src="../js/common_ui.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <a href="#main" id="skip-nav">본문 바로가기</a>
+        <!-- 고정헤더 -->
+        <header id="header">
+            <a href="#" class="menu">menu</a>
+            <h2>Dashboard</h2>
+            <ul id="tnb">
+                <li>
+                    <a href="#"><img src="../img/ico_search_black.png" alt="검색"></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/ico_alarm_black.png" alt="알림">
+                    </a>
+                </li>
+                <li>
+                    <em>Chris Hemsworth</em>
+                    <a href="#">
+                        <img src="../img/ico_account.png" alt="마이페이지">
+                    </a>
+                </li>
+            </ul>
+        </header> <!-- //#header -->
+        <!-- 고정메뉴(왼쪽) -->
+        <nav id="gnb">
+            <h1>
+                <a href="../dashboard.html" class="logo">
+                    logo
+                </a>
+            </h1>
+            <ul>
+                <li>
+                    <a href="../dashboard.html"><span class="ti-view-grid"></span><em>Dashboard</em></a>
+                </li>
+                <li>
+                    <a href="calendar.html"><span class="ti-calendar"></span><em>Calendar</em></a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-layout"></span><em>Project Report</em></a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-folder"></span><em>Collection</em></a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-comments"></span><em>Feedback</em></a>
+                </li>
+                <li>
+                    <a href="#"><span class="ti-settings"></span><em>Setting</em></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 메인 컨텐츠 영역 -->
+        <main id="main">
+            <section class="layout-wrap">
+                <!-- 풀캘린더 -->
+                <div id="calendar"></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+    'use script';
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'dayGrid', 'interaction' ],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek,dayGridDay'
+            },
+            defaultView: 'dayGridMonth',
+            fixedWeekCount: false,
+            selectable: true,
+            editable: true,
+            navLinks: true,
+            eventLimit: true,
+            events: [{
+                title: 'All Day Event',
+                start: '2019-07-08'
+            },
+            {
+                title: 'Long Event',
+                start: '2019-07-01',
+                end: '2019-07-07'
+            },
+            {
+                title: 'Meeting',
+                start: '2019-07-10T11:30:00',
+                end: '2019-07-10T15:30:00'
+            },
+            {
+                title: 'Lunch',
+                start: '2019-07-12T12:00:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2019-07-12T14:30:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2019-07-12T14:30:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2019-07-12T14:30:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2019-07-12T14:30:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2019-07-12T14:30:00'
+            }],
+            selectable: true,
+            selectMirror: false,
+            select: function(arg) {
+                var title = prompt('Add Event:');
+                if (title) {
+                    calendar.addEvent({
+                        title: title,
+                        start: arg.start,
+                        end: arg.end,
+                        allDay: arg.allDay
+                    })
+                }
+                calendar.unselect()
+            }
+        });
+        calendar.render();
+    });
+    </script>
+</body>
+</html>

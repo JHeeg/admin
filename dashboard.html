@@ -8,7 +8,7 @@
     <!-- css 링크 -->
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/dashboard.css" media="screen and (min-width: 850px)">
     <!-- 자바스크립트 -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/iscroll.js"></script>
@@ -95,16 +95,16 @@
         <!-- 고정메뉴(왼쪽) -->
         <nav id="gnb">
             <h1>
-                <a href="#">
-                    <img src="img/logo_white.png" alt="로고" class="logo">
+                <a href="dashboard.html" class="logo">
+                    logo
                 </a>
             </h1>
             <ul>
                 <li>
-                    <a href="index.html"><span class="ti-view-grid"></span><em>Dashboard</em></a>
+                    <a href="dashboard.html"><span class="ti-view-grid"></span><em>Dashboard</em></a>
                 </li>
                 <li>
-                    <a href="#"><span class="ti-calendar"></span><em>Calendar</em></a>
+                    <a href="page/calendar.html"><span class="ti-calendar"></span><em>Calendar</em></a>
                 </li>
                 <li>
                     <a href="#"><span class="ti-layout"></span><em>Project Report</em></a>
@@ -153,7 +153,7 @@
                     <section class="layout col-1-2">
                         <section class="layout-box review">
                             <h3>Latest Rattings & Reviews</h3>
-                            <div class="content-box scroll">
+                            <div class="content-box" id="scroll-1">
                                 <ul>
                                     <li>
                                         <em>1. Mr. John James</em>
@@ -195,7 +195,7 @@
                         </section>
                         <section class="layout-box sell-list">
                             <h3>Top Selling Products</h3>
-                            <div class="content-box scroll">
+                            <div class="content-box" id="scroll-2">
                                 <table>
                                     <caption>Top Selling Products List</caption>
                                     <colgroup>
@@ -282,7 +282,7 @@
                 <section class="layout row-1">
                     <section class="layout-box activity">
                         <h3>Activities</h3>
-                        <div class="content-box scroll">
+                        <div class="content-box" id="scroll-3">
                             <ul>
                                 <li>
                                     <div class="content-title">
@@ -351,33 +351,28 @@
 
     <script>
     'use script';
+    // iscroll
     
-    // iScroller();
-
-    // function iScroller() {
-    //     var myScroll = new Array();
-    //     $('.scroll').each(function() {
-    //         $(this).attr('id', 'wrapper' + $(this).index());
-    //         id = $(this).attr('id');
-    //         console.log(id);
-    //         myScroll.push(new IScroll(id, {
-    //             mouseWheel: true,
-    //             scrollbars: true,
-    //             fadeScrollbars: false,
-    //             interactiveScrollbars: true
-    //         }));
-    //     });
-    // }
-
     setTimeout(function() {
-        var myScroll = new IScroll('div.scroll', {
+        var myScroll = new IScroll('#scroll-1', {
             mouseWheel: true,
             scrollbars: true,
             fadeScrollbars: false,
             interactiveScrollbars: true
-        });   
-    }, 500);
-        
+        });
+        var myScroll = new IScroll('#scroll-2', {
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: false,
+            interactiveScrollbars: true
+        });
+        var myScroll = new IScroll('#scroll-3', {
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: false,
+            interactiveScrollbars: true
+        });
+    }, 300);
     </script>
 </body>
 </html>
