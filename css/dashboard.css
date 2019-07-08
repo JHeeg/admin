@@ -36,9 +36,6 @@ a {font-family: inherit;}
 #gnb ul li a:hover {border-radius: 5px; background: rgba(255, 255, 255, 0.2);}
 #gnb ul li span {margin-right: 20px; font-size: 15px;}
 
-
-
-
 /* 메인 컨텐츠 영역 */
 #main {min-height: 100%; margin: 70px 0 0 240px; padding: 30px; transition: margin-left 0.3s;}
 #main.on {margin-left: 60px;}
@@ -94,9 +91,9 @@ section.activity div.content-title > span.ti-gift {color: #f05053;}
 section.activity div.content-title > span.ti-sharethis {color: #11bb1a;}
 section.activity div.content-title > span.ti-bell {color: #ffd900;}
 section.activity div.content-title a {display: block; height: 100%; padding: 8px 0;}
-section.activity div.content-title a span {position: absolute; right: 0; top: 50%; transform: translate(0, -50%); font-size: 12px;}
+section.activity div.content-title a span {position: absolute; right: 20px; top: 50%; transform: translate(0, -50%); font-size: 12px;}
 
-section.activity ul.content {margin: 10px 0 30px 21px; padding-left: 30px; border-left: 1px dotted #e4e4e4;}
+section.activity ul.content {margin: 10px 30px 21px; padding-left: 30px; border-left: 1px dotted #e4e4e4;}
 section.activity ul.content li {font-size: 14px; line-height: 20px;}
 section.activity ul.content li + li {margin-top: 20px;}
 section.activity ul.content li em {font-size: 16px; margin-bottom: 5px; text-decoration: underline;}
