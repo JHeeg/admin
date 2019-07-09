@@ -8,7 +8,8 @@
     <!-- css 링크 -->
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css" media="screen and (min-width: 851px)">
+    <link rel="stylesheet" href="css/dashboard_mobile.css" media="screen and (max-width: 850px)">
     <!-- 자바스크립트 -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/iscroll.js"></script>
@@ -17,53 +18,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
     google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['sale', 'total'],
-            ['Urgent', 2],
-            ['Normal', 2],
-            ['Completed', 6],
-        ]);
-
-        var options = {
-            pieHole: 0.8,
-            legend: {position: 'bottom', fontSize: 20},
-            width: 260,
-            height: 260,
-            chartArea: {width: 230, height: 220},
-            pieSliceText: 'none'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-    }
-    </script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['bar']});
-        google.charts.setOnLoadCallback(drawChart);
-  
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses', 'Profit'],
-            ['2014', 1000, 400, 200],
-            ['2015', 1170, 460, 250],
-            ['2016', 660, 1120, 300],
-            ['2017', 1030, 540, 350]
-          ]);
-  
-          var options = {
-            legend: {position: 'none'},
-            height: 260,
-            width: 600,
-            hAxis: {title: ''},
-            bar: {groupWidth: '50%'}
-          };
-  
-          var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-  
-          chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
+    google.charts.setOnLoadCallback(drawChart1);
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart2);
     </script>
 </head>
 <body>
@@ -72,6 +29,11 @@
         <!-- 고정헤더 -->
         <header id="header">
             <a href="#" class="menu">menu</a>
+            <h1>
+                <a href="dashboard.html" class="logo_m mobile hidden">
+                    logo
+                </a>
+            </h1>
             <h2>Dashboard</h2>
             <ul id="tnb">
                 <li>
@@ -84,11 +46,18 @@
                         <img src="img/ico_alarm_black.png" alt="알림">
                     </a>
                 </li>
-                <li>
+                <li class="myinfo">
                     <em>Chris Hemsworth</em>
                     <a href="#">
                         <img src="img/ico_account.png" alt="마이페이지">
                     </a>
+                    <ul class="myinfo-sub">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Messages</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li><a href="#">My Tasks</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </ul>
                 </li>
             </ul>
         </header> <!-- //#header -->
@@ -119,7 +88,7 @@
                     <a href="#"><span class="ti-settings"></span><em>Setting</em></a>
                 </li>
             </ul>
-        </nav>
+        </nav> <!-- //#gnb -->
         <!-- 메인 컨텐츠 영역 -->
         <main id="main">
             <section class="layout-wrap">
@@ -199,7 +168,7 @@
                                 <table>
                                     <caption>Top Selling Products List</caption>
                                     <colgroup>
-                                        <col width="5%">
+                                        <col width="3%">
                                         <col width="50%">
                                         <col>
                                         <col>
@@ -352,7 +321,6 @@
     <script>
     'use script';
     // iscroll
-    
     setTimeout(function() {
         var myScroll = new IScroll('#scroll-1', {
             mouseWheel: true,

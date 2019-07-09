@@ -1,8 +1,9 @@
 /* 공통 */
 body {font-family: 'Rajdhani'; font-size: 16px;}
-#wrap {width: 100%; min-width: 1200px; }
+#wrap {width: 100%; /* min-width: 1200px; */ }
 a {font-family: inherit;}
 .hidden {height: 0; line-height: 0; font-size: 0; text-indent: -9999px;}
+.mobile {display: none;}
 ::selection {color: #fff; background: #f05053;}
 
 /* 헤더 */
@@ -12,21 +13,30 @@ a {font-family: inherit;}
 #header.on a.menu {transform: rotate(90deg);}
 #header h2 {position: absolute; left: 80px; top: 50%; transform: translate(0, -50%); font-weight: 500;}
 
-#tnb {position: absolute; right: 30px; top: 50%; transform: translate(0, -50%); overflow: hidden;}
-#tnb li {display: inline-block; font-size: 20px; font-weight: 500;}
-#tnb li + li {margin-left: 15px;}
-#tnb li img {width: 30px;}
-#tnb li:last-child::before {content: '|'; display: inline-block; margin-right: 15px;}
-#tnb li:last-child img {width: 45px; margin-left: 10px;}
+#tnb {position: absolute; right: 30px; top: 50%; transform: translate(0, -50%);}
+#tnb > li {display: inline-block; font-size: 20px; font-weight: 500;}
+#tnb > li + li {margin-left: 15px;}
+#tnb > li img {width: 30px;}
+#tnb > li:last-child::before {content: '|'; display: inline-block; margin-right: 15px;}
+#tnb > li:last-child img {width: 45px; margin-left: 10px;}
+
+/* 내정보 서브 메뉴 */
+#tnb ul.myinfo-sub {position: absolute; display: none; width: 200px; height: 200px; right: 0; bottom: -230px; border: 1px solid #e4e4e4; border-top: 2px solid #222; background-color: #fff; box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); z-index: 10;}
+#tnb ul.myinfo-sub li {font-size: 15px;}
+#tnb ul.myinfo-sub li a {display: block; width: 100%; height: 40px; line-height: 40px; padding: 0 10px;box-sizing: border-box;}
+#tnb ul.myinfo-sub li a:hover {background-color: rgba(0, 0, 0, 0.3); color: #fff; }
+#tnb ul.myinfo-sub li:last-child {text-align: center; color: #fff; background-color: #222;}
+#tnb ul.myinfo-sub li:last-child a:hover {background-color: rgba(255, 255, 255, 0.5);}
+#tnb ul.myinfo-sub::after {content: ''; position: absolute; left: 174px; top: -7px; display: block; width: 9px; height: 9px; transform: rotate(45deg); border-top: 2px solid #222; border-left: 2px solid #222; background-color: #fff; z-index: -1;}
+#tnb > li.myinfo.on ul.myinfo-sub {display: block;}
 
 /* 메뉴 */
 #gnb {position: fixed; width: 240px; height: 100%; left: 0; top: 0; background: linear-gradient(to top, #ffffff, #f05053); box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.1); z-index: 10; transition: width 0.3s;}
 #gnb.on {width: 60px;}
 #gnb.on em {display: none;}
+#gnb h1 {position: absolute; left: 50%; top: 10px; transform: translate(-50%, 0);}
 #gnb a.logo {display: block; width: 160px; height: 55px; background: url(../img/logo_white.png) no-repeat center center / 120px; text-indent: -99999px;}
 #gnb.on a.logo {width: 55px; background-image: url(../img/logo_white_s.png); background-size: 30px;}
-#gnb h1 {position: absolute; left: 50%; top: 10px; transform: translate(-50%, 0);}
-#gnb h1 a {display: block; width: 110px;}
 
 #gnb ul {margin-top: 90px; padding: 0 7px;}
 #gnb ul li {width: 225px; line-height: 40px; color: #f4f4f4; font-size: 17px; letter-spacing: 1px;}
@@ -34,26 +44,32 @@ a {font-family: inherit;}
 #gnb ul li + li {margin-top: 5px;}
 #gnb ul li a {width: 100%; display: inline-block; padding: 0 15px; box-sizing: border-box;}
 #gnb ul li a:hover {border-radius: 5px; background: rgba(255, 255, 255, 0.2);}
-#gnb ul li span {margin-right: 20px; font-size: 15px;}
+#gnb ul li span {margin-right: 15px; font-size: 15px;}
 
 /* 메인 컨텐츠 영역 */
 #main {min-height: 100%; margin: 70px 0 0 240px; padding: 30px; transition: margin-left 0.3s;}
 #main.on {margin-left: 60px;}
+
 /* 메인 공통 */
 section.layout-wrap, section.layout, section.layout-box {overflow: hidden;}
 section.layout > section.layout-box {min-height: 350px; padding: 20px; background: #ffffff; border: 1px solid #e4e4e4; border-radius: 5px; box-sizing: border-box;}
 section.layout.row-2 {float: left; width: calc(75% - 10px);}
 section.layout.row-2 > section.col-1 {width: 100%;}
 section.layout.row-2 > section.layout + section.layout {margin-top: 25px;}
-section.layout.row-2 > section.layout.col-1-2 > section.layout-box {float: left; width: 30%;}
-section.layout.row-2 > section.layout.col-1-2 > section.layout-box:last-child {width: 68%; margin-left: 2%;}
+section.layout.row-2 > section.layout.col-1-2 > section.layout-box {float: left; width: 35%;}
+section.layout.row-2 > section.layout.col-1-2 > section.layout-box:last-child {width: 63%; margin-left: 2%;}
 
-section.layout.row-1 {float: right; width: calc(25% - 10px); height: 100%;}
-section.layout.row-1 > section.layout-box {min-height: 720px;}
+section.layout.row-1 {float: right; width: calc(25% - 10px);}
+section.layout.row-1 > section.layout-box {max-height: 100%; min-height: 760px;}
 
-section.layout-box div.content-box {position: relative; max-height: 260px; margin-top: 20px; box-sizing: border-box; overflow: hidden;}
+section.layout-box div.content-box {position: relative; max-height: 300px; margin-top: 20px; box-sizing: border-box; overflow: hidden;}
 section.layout-box div.content-box p.txt,
 section.layout-box .content {font-family: 'Noto Sans', 'Noto Sans KR'; font-size: 12px; color: #444;}
+
+@media screen and (max-width: 1200px) {
+    section.layout.row-2 {float: none; width: 100%;}
+    section.activity {display: none;} /* 오른쪽 퀵 메뉴로 추가 예정 07.09 */
+}
 
 /* 메인 각 섹션별 영역 */
 /* sale */
@@ -83,7 +99,7 @@ table td {font-family: 'Noto Sans', 'Noto Sans KR'; font-size: 12px; color: #444
 table th, table td {padding: 10px 20px; text-align: center;}
 
 /* Activities */
-section.activity div.content-box {max-height: 640px;}
+section.activity div.content-box {max-height: 675px;}
 section.activity div.content-box > ul > li + li {margin-top: 10px;}
 section.activity div.content-title {position: relative; width: 100%; font-size: 20px; font-weight: 600; color: #222; overflow: hidden;}
 section.activity div.content-title > span {float: left; padding: 10px; margin-right: 10px; border: 1px solid #e4e4e4; border-radius: 50%;}
@@ -109,6 +125,23 @@ section.activity li.birth:nth-child(4)::before {background-image: url(../img/fac
 
 section.activity div.content-box > ul > li:nth-child(3) ul.content li {list-style: disc;}
 
+@media screen and (max-width: 1200px) {
+    #header {width: calc(100% - 60px);}
+    #header.on {width: calc(100% - 240px);}
+    #header.on a.menu {text-indent: -9999px;}
+
+    #gnb {width: 60px;}
+    #gnb a.logo {width: 55px; background-image: url(../img/logo_white_s.png); background-size: 30px;}
+    #gnb em {display: none;}
+    #gnb.on em {display: inline-block;}
+    #gnb.on {width: 240px;}
+    #gnb.on a.logo {width: 160px; background: url(../img/logo_white.png) no-repeat center center / 120px;}
+    #gnb ul li {width: 46px;}
+    #gnb.on ul li {width: 225px;}
+
+    #main {margin-left: 60px;}
+    #main.on {margin: 70px 0 0 240px;}
+}
 
 /* color guide */
 /*
