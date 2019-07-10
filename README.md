@@ -13,7 +13,14 @@
 ## 07.08
 - dashboard 완료.
 - calendar 완료.
-  
-## to do (07.08 이후)
-- 반응형 작업하기
-- Project Report 페이지 추가하기
+### to do (07.09)
+- 반응형 작업하기 (o)  
+- Project Report 페이지 추가하기(x)  
+
+## 07.09  
+- dashboard 반응형 레이아웃 완료 (mobile-pad-pc)  
+### to do (07.10)  
+- dashboard 구글차트 반응형 적용하기 (o)   
+- dashboard 컨텐츠 추가하기
+- calendar 반응형 적용하기 (o)  
+- Project Report 페이지 추가하기  
