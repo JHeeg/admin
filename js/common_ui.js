@@ -7,16 +7,6 @@ $(document).ready(function() {
     showDown();
     menuToggle();
     myInfo();
-
-    // 윈도우 화면이 1550px보다 작을 경우 gnb가 자동으로 줄어들도록 설정
-/*     $(window).on('resize', function() {
-        windowWidth = $(window).width();
-        if (windowWidth < 1200) {
-            $('#header').addClass('on');
-            $('#gnb').addClass('on');
-            $('#main').addClass('on');
-        }
-    }); */
 });
 
 // activity 영역의 다운 화살표를 누르면 해당 내용이 보여지는 함수
