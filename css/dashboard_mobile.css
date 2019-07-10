@@ -6,45 +6,9 @@ a {font-family: inherit;}
 .pc {display: none;}
 ::selection {color: #fff; background: #f05053;}
 
-/* 헤더 */
-#header {position: fixed; width: 100%; height: 70px; right: 0; top: 0; transition: width 0.3s; border-bottom: 1px solid #e4e4e4; background-color: #fff; box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.1); box-sizing: border-box; z-index: 10;}
-#header a.menu {position: absolute; width: 30px; height: 30px; left: 30px; top: 50%; transform: translate(0, -50%); background-image: url(../img/ico_widget_black.png); background-size: 30px 30px; text-indent: -9999px; transition: transform 0.3s; transform-origin: 75% 25%;}
-
-#header.on a.menu {transform: rotate(90deg);}
-#header h2 {display: none;}
-
-#header a.logo_m {position: absolute; width: 150px; height: 50px; left: 50%; top: 50%; transform: translate(-50%, -50%); display: block; background: url(../img/logo_black.png) no-repeat center center / contain;}
-
-#tnb {position: absolute; right: 30px; top: 50%; transform: translate(0, -50%);}
-#tnb > li {display: inline-block; font-size: 20px; font-weight: 500;}
-#tnb > li + li {margin-left: 15px;}
-#tnb > li img {width: 30px;}
-#tnb > li:last-child em {height: 0; line-height: 0; font-size: 0; text-indent: -9999px;}
-#tnb > li:last-child img {width: 45px; margin-left: 10px;}
-
-/* 내정보 서브 메뉴 */
-#tnb ul.myinfo-sub {position: absolute; display: none; width: 200px; height: 200px; right: 0; bottom: -230px; border: 1px solid #e4e4e4; border-top: 2px solid #222; background-color: #fff; box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); z-index: 10;}
-#tnb ul.myinfo-sub li {font-size: 15px;}
-#tnb ul.myinfo-sub li a {display: block; width: 100%; height: 40px; line-height: 40px; padding: 0 10px;box-sizing: border-box;}
-#tnb ul.myinfo-sub li a:hover {background-color: rgba(0, 0, 0, 0.3); color: #fff; }
-#tnb ul.myinfo-sub li:last-child {text-align: center; color: #fff; background-color: #222;}
-#tnb ul.myinfo-sub li:last-child a:hover {background-color: rgba(255, 255, 255, 0.5);}
-#tnb ul.myinfo-sub::after {content: ''; position: absolute; left: 174px; top: -7px; display: block; width: 9px; height: 9px; transform: rotate(45deg); border-top: 2px solid #222; border-left: 2px solid #222; background-color: #fff; z-index: -1;}
-#tnb > li.myinfo.on ul.myinfo-sub {display: block;}
-
-/* 메뉴 */
-#gnb {position: fixed; width: 240px; height: 100%; left: -240px; top: 70px; background: linear-gradient(to top, #ffffff, #f05053); box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.1); z-index: 10; transition: left 0.3s;}
-#gnb.on {left: 0;}
-#gnb a.logo {display: none;}
-
-#gnb ul {margin-top: 20px; padding: 0 7px;}
-#gnb ul li {width: 225px; line-height: 40px; color: #f4f4f4; font-size: 17px; letter-spacing: 1px;}
-#gnb ul li + li {margin-top: 5px;}
-#gnb ul li a {width: 100%; display: inline-block; padding: 0 15px; box-sizing: border-box;}
-#gnb ul li span {margin-right: 15px; font-size: 15px;}
 
 /* 메인 컨텐츠 영역 */
-#main {min-height: 100%; margin: 70px 0 0 0; padding: 30px; transition: margin-left 0.3s;}
+#main {min-height: 100%; margin-top: 70px; margin-left: 0; padding: 30px; transition: margin-left 0.3s;}
 
 /* 메인 공통 */
 section.layout-wrap, section.layout, section.layout-box {overflow: hidden;}
@@ -94,24 +58,12 @@ table th, table td {padding: 10px 20px; text-align: center;}
 /* Activities */
 section.activity {display: none;}
 
-
 /* google chart */
 .chart {width: 100%; min-height: 350px; overflow: hidden;}
 .row {margin: 0 !important;}
 
 /* ipad 이하 폰 사이즈 */
 @media screen and (max-width: 767px) {
-    /* header */
-    #header {height: 50px;}
-    #header a.menu {left: 15px;}
-    #header a.logo_m {width: 105px; height: 30px;}
-    #tnb {right: 15px;}
-    #tnb > li:nth-child(1), #tnb > li:nth-child(2) {display: none;}
-    #tnb > li:last-child img {width: 35px;}
-
-    /* gnb */
-    #gnb {top: 50px;}
-
     /* main */
     #main {margin: 50px 0 0 0;}
     #main section.layout {margin: 0;}

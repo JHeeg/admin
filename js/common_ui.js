@@ -52,7 +52,7 @@ function drawChart1() {
     var options = {
         pieHole: 0.8,
         legend: {position: 'bottom', fontSize: 20},
-        width: 260,
+        width: '100%',
         height: 260,
         chartArea: {width: 230, height: 220},
         pieSliceText: 'none'
@@ -60,27 +60,29 @@ function drawChart1() {
 
     var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
     chart.draw(data, options);
+    window.addEventListener('resize', function() {chart.draw(data, options);}, false);
 }
 
 // 구글차트 세로막대형
 function drawChart2() {
     var data = google.visualization.arrayToDataTable([
-      ['Year', 'Sales', 'Expenses', 'Profit'],
-      ['2014', 1000, 400, 200],
-      ['2015', 1170, 460, 250],
-      ['2016', 660, 1120, 300],
-      ['2017', 1030, 540, 350]
+        ['Year', 'Sales', 'Expenses', 'Profit'],
+        ['2014', 1000, 400, 200],
+        ['2015', 1170, 460, 250],
+        ['2016', 660, 1120, 300],
+        ['2017', 1030, 540, 350]
     ]);
 
     var options = {
-      legend: {position: 'none'},
-      height: 260,
-      width: 600,
-      hAxis: {title: ''},
-      bar: {groupWidth: '50%'}
+        legend: {position: 'none'},
+        width: '100%',
+        height: 260,
+        hAxis: {title: ''},
+        bar: {groupWidth: '50%'}
     };
 
     var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
     chart.draw(data, google.charts.Bar.convertOptions(options));
-  }
+    window.addEventListener('resize', function() {chart.draw(data, options);}, false);
+
+}

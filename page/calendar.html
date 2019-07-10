@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Heez - Admin</title>
-
     <!-- css 링크 -->
     <link rel="stylesheet" href="../css/themify-icons.css">
     <link href="../css/fullcalendar/fullcalendar_core.css" rel="stylesheet" />
@@ -13,8 +12,8 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/header_gnb_common.css">
     <link rel="stylesheet" href="../css/calendar.css">
-
     <!-- 자바스크립트 -->
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/fullcalendar/fullcalendar_core.js"></script>
@@ -29,6 +28,11 @@
         <!-- 고정헤더 -->
         <header id="header">
             <a href="#" class="menu">menu</a>
+            <h1>
+                <a href="../dashboard.html" class="logo_m mobile hidden">
+                    logo
+                </a>
+            </h1>
             <h2>Calendar</h2>
             <ul id="tnb">
                 <li>
@@ -39,11 +43,18 @@
                         <img src="../img/ico_alarm_black.png" alt="알림">
                     </a>
                 </li>
-                <li>
+                <li class="myinfo">
                     <em>Chris Hemsworth</em>
                     <a href="#">
                         <img src="../img/ico_account.png" alt="마이페이지">
                     </a>
+                    <ul class="myinfo-sub">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Messages</a></li>
+                        <li><a href="#">My Activities</a></li>
+                        <li><a href="#">My Tasks</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </ul>
                 </li>
             </ul>
         </header> <!-- //#header -->
