@@ -23,4 +23,11 @@
 - dashboard 구글차트 반응형 적용하기 (o)   
 - dashboard 컨텐츠 추가하기
 - calendar 반응형 적용하기 (o)  
-- Project Report 페이지 추가하기  
+- Project Report 페이지 추가하기 (o)  
+
+## 07.10  
+- dashboard 구글차트 완료  
+- calendar 페이지 반응형 완료  
+- Project Report 페이지 추가 (테이블 수정 및 모바일버전에서 테이블 레이아웃 수정 필요)  
+- Project List 테이블 모서리 둥글게 처리
+- html, css 코드 정리
