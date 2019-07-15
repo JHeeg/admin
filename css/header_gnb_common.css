@@ -39,23 +39,6 @@
 #gnb ul li a:hover {border-radius: 5px; background: rgba(255, 255, 255, 0.2);}
 #gnb ul li span {margin-right: 15px; font-size: 15px;}
 
-@media screen and (min-width: 1024px) and (max-width: 1200px) {
-    /* 헤더 */
-    #header {width: calc(100% - 60px);}
-    #header.on {width: calc(100% - 240px);}
-    #header.on a.menu {text-indent: -9999px;}
-
-    /* 메뉴 */
-    #gnb {width: 60px;}
-    #gnb a.logo {width: 55px; background-image: url(../img/logo_white_s.png); background-size: 30px;}
-    #gnb em {display: none;}
-    #gnb.on em {display: inline-block;}
-    #gnb.on {width: 240px;}
-    #gnb.on a.logo {width: 160px; background: url(../img/logo_white.png) no-repeat center center / 120px;}
-    #gnb ul li {width: 46px;}
-    #gnb.on ul li {width: 225px;}
-}
-
 /* ipad ~ 1199px 사이즈*/
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     /* 헤더 */

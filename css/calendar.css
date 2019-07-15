@@ -12,11 +12,6 @@ a:hover {color: #fff; text-decoration: none;}
 /* 메인 공통 */
 section.layout-wrap {overflow: hidden;}
 
-@media screen and (min-width: 1024px) and (max-width: 1200px) {
-    #main {margin: 70px 0 0 60px;}
-    #main.on {margin-left: 240px;}
-}
-
 /* ipad ~ 1023px 사이즈 */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     #main {margin: 70px 0 0 0;}

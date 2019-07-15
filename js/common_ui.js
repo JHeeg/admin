@@ -4,7 +4,6 @@ $(document).on('click', 'a[href="#"]', function(e) {
 });
 
 $(document).ready(function() {
-    showDown();
     menuToggle();
     myInfo();
 });
@@ -29,7 +28,44 @@ function myInfo() {
         $(this).parent().toggleClass('on');
     });
 }
-
+// 테이블 프로젝트 상태에 따른 컬러 표시
+function statusColor() {
+    $('tbody tr').each(function() {
+        var $selector = $(this).find('td.status > span')
+        var colorCode = $selector.text();
+        //console.log(colorCode);
+        if (colorCode === 'Completed') {
+            $selector.css({'background-color': '#3CFA58'});
+        } else if (colorCode === 'Delayed') {
+            $selector.css({'background-color': '#F74734'});
+        } else if (colorCode === 'In Process') {
+            $selector.css({'background-color': '#F7CA36'});
+        }
+    });
+}
+// iscroll
+function scroller() {
+    setTimeout(function() {
+        var myScroll = new IScroll('#scroll-1', {
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: false,
+            interactiveScrollbars: true
+        });
+        var myScroll = new IScroll('#scroll-2', {
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: false,
+            interactiveScrollbars: true
+        });
+        var myScroll = new IScroll('#scroll-3', {
+            mouseWheel: true,
+            scrollbars: true,
+            fadeScrollbars: false,
+            interactiveScrollbars: true
+        });
+    }, 300);
+}
 // 구글차트 도넛형
 function drawChart1() {
     var data = google.visualization.arrayToDataTable([
@@ -52,7 +88,6 @@ function drawChart1() {
     chart.draw(data, options);
     window.addEventListener('resize', function() {chart.draw(data, options);}, false);
 }
-
 // 구글차트 세로막대형
 function drawChart2() {
     var data = google.visualization.arrayToDataTable([
@@ -74,5 +109,4 @@ function drawChart2() {
     var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
     chart.draw(data, google.charts.Bar.convertOptions(options));
     window.addEventListener('resize', function() {chart.draw(data, options);}, false);
-
 }

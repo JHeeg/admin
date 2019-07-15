@@ -11,21 +11,15 @@ a {font-family: inherit;}
 /* 메인 공통 */
 section.layout-wrap {overflow: hidden;}
 
-
 table {width: 100%; border: 1px solid #e4e4e4; border-radius: 10px; border-collapse: separate; overflow: hidden;}
 th {padding: 20px 0; font-size: 20px;}
-td {padding: 10px; text-align: center; border-top: 1px solid #e4e4e4;}
+td {padding: 10px; text-align: center; border-top: 1px solid #e4e4e4; font-family: 'Noto Sans'; font-size: 14px;}
 td:nth-child(2) {font-weight: 600;}
-
-
-
-@media screen and (min-width: 1024px) and (max-width: 1200px) {
-    #main {margin: 70px 0 0 60px;}
-    #main.on {margin-left: 240px;}
-}
+td.status span {padding: 3px 7px; border-radius: 10px;}
 
 /* ipad ~ 1023px 사이즈 */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* main */
     #main {margin: 70px 0 0 0;}
     #main.on {margin-left: 0;}
 }
